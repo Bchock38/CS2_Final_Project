@@ -19,8 +19,6 @@ public class Game {
         charPool.add(new Card("8",100,8,""));
         charPool.add(new Card("9",100,9,""));
         charPool.add(new Card("10",100,10,""));
-
-
     }
 
 
