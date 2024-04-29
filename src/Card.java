@@ -28,6 +28,10 @@ public class Card {
     private int move1H;
     private int move2H;
 
+    private int move1Crit;
+
+    private int move2Crit;
+
     public Card(String name, int health, int indexNum, String owner, Screen screen, Image image){
         this.name = name;
         this.health = health;
@@ -47,11 +51,13 @@ public class Card {
     public void setType(String type){
         this.type = type;
     }
-    public void setMove1(String name, int damage, int heal, String moveType){
+
+    public void setMove1(String name, int damage, int heal, String moveType, int crit){
         move1D = damage;
         move1N = name;
         move1H = heal;
         move1T = moveType;
+        move1Crit = crit;
     }
 
     public boolean getLivingStatus(){
@@ -60,11 +66,12 @@ public class Card {
         }
         return isAlive;
     }
-    public void setMove2(String name, int damage, int heal, String moveType){
+    public void setMove2(String name, int damage, int heal, String moveType, int crit){
         move2D = damage;
         move2N = name;
         move2H = heal;
         move2T = moveType;
+        move2Crit = crit;
     }
 
     public void setHealth(int damage){

@@ -55,20 +55,20 @@ public class Game implements KeyListener {
         game.battle();
     }
     public void makeCard1(){
-        charPool.get(0).setMove1("Razor Leaf",60, 0,"Grass");
-        charPool.get(0).setMove2("Giga Drain",40, 20, "Grass");
+        charPool.get(0).setMove1("Razor Leaf",60, 0,"Grass",0);
+        charPool.get(0).setMove2("Giga Drain",40, 20, "Grass",0);
         charPool.get(0).setType("Grass");
     }
 
     public void makeCard2(){
-        charPool.get(1).setMove1("Water Gun",60, 0,"Water");
-        charPool.get(1).setMove2("Aqua Tail",40,0 ,"Water");
+        charPool.get(1).setMove1("Water Gun",60, 0,"Water",0);
+        charPool.get(1).setMove2("Aqua Tail",40,0 ,"Water",30);
         charPool.get(1).setType("Water");
     }
 
     public void makeCard3(){
-        charPool.get(2).setMove1("Flamethrower",70, 0,"Fire");
-        charPool.get(2).setMove2("Nova Punch",50,0 ,"Normal");
+        charPool.get(2).setMove1("Flamethrower",70, 0,"Fire",0);
+        charPool.get(2).setMove2("Nova Punch",50,0 ,"Normal",0);
         charPool.get(2).setType("Fire");
     }
 
