@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Card {
 
     private String name;
@@ -8,11 +10,134 @@ public class Card {
 
     private String owner;
 
-    public Card(String name, int health, int indexNum, String owner){
+    private Screen screen;
+
+    private boolean isAlive;
+
+    private int move1D;
+    private String move1N;
+    private int move2D;
+    private String move2N;
+
+    private String type;
+
+    private Image card;
+
+    private String move1T;
+    private String move2T;
+    private int move1H;
+    private int move2H;
+
+    public Card(String name, int health, int indexNum, String owner, Screen screen, Image image){
         this.name = name;
         this.health = health;
         this.indexNum = indexNum;
         this.owner = owner;
+        this.screen = screen;
+        move1D = 0;
+        move1N = "";
+        move2D = 0;
+        move2N = "";
+        move1H = 0;
+        move2H = 0;
+        card = image;
+        isAlive = true;
+    }
 
+    public void setType(String type){
+        this.type = type;
+    }
+    public void setMove1(String name, int damage, int heal, String moveType){
+        move1D = damage;
+        move1N = name;
+        move1H = heal;
+        move1T = moveType;
+    }
+
+    public boolean getLivingStatus(){
+        if (health <= 0){
+            isAlive = false;
+        }
+        return isAlive;
+    }
+    public void setMove2(String name, int damage, int heal, String moveType){
+        move2D = damage;
+        move2N = name;
+        move2H = heal;
+        move2T = moveType;
+    }
+
+    public void setHealth(int damage){
+        health -=damage;
+    }
+
+    public String getType(){
+        return type;
+    }
+    public int doMove1(String oponentType){
+        health += move1H;
+        if (move1T.equals("Fire") && oponentType.equals("Water")){
+            return move1D/2;
+        }
+        else if (move1T.equals("Fire") && oponentType.equals("Grass")){
+            return move1D*2;
+        }
+        else if (move1T.equals("Water") && oponentType.equals("Grass")){
+            return move1D/2;
+        }
+        else if (move1T.equals("Water") && oponentType.equals("Fire")){
+            return move1D*2;
+        }
+        else if (move1T.equals("Grass") && oponentType.equals("Fire")){
+            return move1D/2;
+        }
+        else if (move1T.equals("Grass") && oponentType.equals("Water")){
+            return move1D*2;
+        }
+        else {
+            return move1D;
+        }
+
+
+    }
+
+    public int doMove2(String oponentType){
+        health += move2H;
+        if (move2T.equals("Fire") && oponentType.equals("Water")){
+            return move2D/2;
+        }
+        else if (move2T.equals("Fire") && oponentType.equals("Grass")){
+            return move2D*2;
+        }
+        else if (move2T.equals("Water") && oponentType.equals("Grass")){
+            return move2D/2;
+        }
+        else if (move2T.equals("Water") && oponentType.equals("Fire")){
+            return move2D*2;
+        }
+        else if (move2T.equals("Grass") && oponentType.equals("Fire")){
+            return move2D/2;
+        }
+        else if (move2T.equals("Grass") && oponentType.equals("Water")){
+            return move2D*2;
+        }
+        else {
+            return move2D;
+        }
+    }
+
+    public String getMove1N(){
+        return move1N;
+    }
+    public String getMove2N(){
+        return move2N;
+    }
+
+    public int getHealth(){
+        return health;
+    }
+    public void draw(Graphics g, int x, int y){
+        g.setFont(new Font("Default",Font.PLAIN,50));
+        g.drawImage(card,x,y,260,400,screen);
     }
 }

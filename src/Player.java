@@ -10,6 +10,7 @@ public class Player {
         deck = new ArrayList<Card>();
     }
 
+
     public ArrayList<Card> getDeck() {
         return deck;
     }
