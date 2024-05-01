@@ -14,9 +14,12 @@ public class Game implements KeyListener {
 
     private Player player;
 
+    private int currentCard;
+
     private Card boss1CurCard;
 
     public Game(){
+        currentCard = 0;
         player = new Player("");
         boss1 = new Player("");
         charPool = new ArrayList<Card>();
@@ -43,33 +46,32 @@ public class Game implements KeyListener {
 //        charPool.add(new Card("9",100,9,"", screen,image9));
 //        charPool.add(new Card("10",100,10,"", screen,image10));
         screen.addKeyListener(this);
-        makeCard1();
-        makeCard2();
-        makeCard3();
+        makeCard1(charPool.get(0));
+        makeCard2(charPool.get(1));
+        makeCard3(charPool.get(2));
     }
 
     public static void main(String[] args) {
         Game game = new Game();
         game.startup();
         game.getCards();
-        game.battle();
     }
-    public void makeCard1(){
-        charPool.get(0).setMove1("Razor Leaf",60, 0,"Grass",0);
-        charPool.get(0).setMove2("Giga Drain",40, 20, "Grass",0);
-        charPool.get(0).setType("Grass");
-    }
-
-    public void makeCard2(){
-        charPool.get(1).setMove1("Water Gun",60, 0,"Water",0);
-        charPool.get(1).setMove2("Aqua Tail",40,0 ,"Water",30);
-        charPool.get(1).setType("Water");
+    public void makeCard1(Card a){
+        a.setMove1("Razor Leaf",60, 0,"Grass",0);
+        a.setMove2("Giga Drain",40, 20, "Grass",0);
+        a.setType("Grass");
     }
 
-    public void makeCard3(){
-        charPool.get(2).setMove1("Flamethrower",70, 0,"Fire",0);
-        charPool.get(2).setMove2("Nova Punch",50,0 ,"Normal",0);
-        charPool.get(2).setType("Fire");
+    public void makeCard2(Card a){
+        a.setMove1("Water Gun",60, 0,"Water",0);
+        a.setMove2("Aqua Tail",40,0 ,"Water",30);
+        a.setType("Water");
+    }
+
+    public void makeCard3(Card a){
+        a.setMove1("Flamethrower",70, 0,"Fire",0);
+        a.setMove2("Nova Punch",50,0 ,"Normal",0);
+        a.setType("Fire");
     }
 
     public void keyTyped(KeyEvent e) {
@@ -86,19 +88,35 @@ public class Game implements KeyListener {
             case KeyEvent.VK_1:
                 if (screen.getState1().equals("battle")){
                     boss1CurCard.setHealth(screen.getCurCard().doMove1(boss1CurCard.getType()));
+                    if (!checkDeckState(boss1)){
+                        screen.setState("Win");
+                    }
+                    else if (!checkDeckState(player)){
+                        screen.setState("Lost");
+                    }
+                    else if (!screen.getCurCard().getLivingStatus()){
+                        screen.setCurCard(player.getDeck().get(++currentCard));
+                    }
+                    screen.repaint();
                     if (randBossMover() == 1){
                         screen.getCurCard().setHealth(boss1CurCard.doMove1(screen.getCurCard().getType()));
                     }
                     else{
                         screen.getCurCard().setHealth(boss1CurCard.doMove2(screen.getCurCard().getType()));
                     }
-                    screen.repaint();
-                    if (!checkDeckState(player)){
-                        screen.setState("Lost");
-                    }
-                    else if (!checkDeckState(boss1)){
+                    if (!checkDeckState(boss1)){
                         screen.setState("Win");
                     }
+                    else if (!checkDeckState(player)){
+                        screen.setState("Lost");
+                    }
+                    else if (!screen.getCurCard().getLivingStatus()){
+                        screen.setCurCard(player.getDeck().get(++currentCard));
+                    }
+                    screen.repaint();
+
+
+
 
                 }
                 break;
@@ -106,6 +124,16 @@ public class Game implements KeyListener {
             case KeyEvent.VK_2:
                 if (screen.getState1().equals("battle")){
                     boss1CurCard.setHealth(screen.getCurCard().doMove2(boss1CurCard.getType()));
+                    if (!checkDeckState(boss1)){
+                        screen.setState("Win");
+                    }
+                    else if (!checkDeckState(player)){
+                        screen.setState("Lost");
+                    }
+                    else if (!screen.getCurCard().getLivingStatus()){
+                        screen.setCurCard(player.getDeck().get(++currentCard));
+                    }
+                    screen.repaint();
                     if (randBossMover() == 1){
                         screen.getCurCard().setHealth(boss1CurCard.doMove1(screen.getCurCard().getType()));
                     }
@@ -119,9 +147,20 @@ public class Game implements KeyListener {
                     else if (!checkDeckState(boss1)){
                         screen.setState("Win");
                     }
+                    else if (!screen.getCurCard().getLivingStatus()){
+                        screen.setCurCard(player.getDeck().get(++currentCard));
+                    }
 
                 }
                 break;
+
+            case KeyEvent.VK_SPACE:
+                if (screen.getState1().equals("Intro")){
+                    screen.setState("battle");
+                    battle();
+                }
+                break;
+
         }
     }
 
@@ -136,12 +175,17 @@ public class Game implements KeyListener {
     }
 
     public void startup(){
-        boss1.addToDeck(charPool.get(0));
+        boss1.addToDeck(new Card (charPool.get(0)));
         boss1CurCard = boss1.getDeck().get(0);
+        makeCard1(boss1CurCard);
+        screen.setState("Intro");
     }
 
     public void getCards(){
         int selector = (int)(Math.random()*3);
+        player.addToDeck(charPool.get(selector));
+        charPool.remove(selector);
+        selector = (int)(Math.random()*2);
         player.addToDeck(charPool.get(selector));
 
 
@@ -150,7 +194,7 @@ public class Game implements KeyListener {
 
     public boolean checkDeckState(Player toCheck){
         for (int i = 0; i < toCheck.getDeck().size(); i++){
-            if (toCheck.getDeck().get(i).getLivingStatus() == true){
+            if (toCheck.getDeck().get(i).getLivingStatus()){
                 return true;
             }
         }
@@ -162,8 +206,7 @@ public class Game implements KeyListener {
     }
 
     public void battle(){
-        screen.setState("battle");
-        screen.setCurCard(player.getDeck().get(0));
+        screen.setCurCard(player.getDeck().get(currentCard));
         screen.repaint();
 //        Card opCard = boss1.getDeck().get(0);
 //        opCard.draw(screen.getGraphics(),300,100);

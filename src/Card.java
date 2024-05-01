@@ -46,8 +46,29 @@ public class Card {
         move2H = 0;
         card = image;
         isAlive = true;
+        type = "";
     }
 
+    public Card(Card card) {
+        this.name = card.getName();
+        this.health = card.getHealth();
+        move1D = 0;
+        move1N = "";
+        move2D = 0;
+        move2N = "";
+        move1H = 0;
+        move2H = 0;
+        this.card = card.getImage();
+        isAlive = true;
+        type = "";
+    }
+
+    public Image getImage(){
+        return card;
+    }
+    public String getName(){
+        return name;
+    }
     public void setType(String type){
         this.type = type;
     }
@@ -83,6 +104,13 @@ public class Card {
     }
     public int doMove1(String oponentType){
         health += move1H;
+        if (move1Crit != 0){
+            int probability = (int)(Math.random()*100)+1;
+            if (probability <= move1Crit){
+                move1D *=2 ;
+            }
+        }
+
         if (move1T.equals("Fire") && oponentType.equals("Water")){
             return move1D/2;
         }
@@ -110,6 +138,13 @@ public class Card {
 
     public int doMove2(String oponentType){
         health += move2H;
+        if (move2Crit != 0){
+            int probability = (int)(Math.random()*10)+1;
+            if (probability <= move2Crit){
+                move2D *=2 ;
+            }
+        }
+
         if (move2T.equals("Fire") && oponentType.equals("Water")){
             return move2D/2;
         }

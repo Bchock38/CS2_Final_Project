@@ -39,7 +39,13 @@ public class Screen extends JFrame{
         g.setColor(Color.white);
         g.fillRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
         g.setColor(Color.black);
-        if(state.equals("battle")){
+        if (state.equals("Intro")){
+            g.setFont(new Font("Default",Font.PLAIN,20));
+            g.drawString("Welcome to the world of Animon", 500, 500);
+            g.drawString("Draw your partners and prepare for battle",500,600);
+            g.drawString("Press Space to Continue", 800, 800);
+        }
+        else if(state.equals("battle")){
             curCard.draw(g,200,450);
             g.setFont(new Font("Default",Font.PLAIN,50));
             g.drawString("1. " + curCard.getMove1N(),100,100);
