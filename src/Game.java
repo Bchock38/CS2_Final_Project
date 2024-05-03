@@ -51,11 +51,6 @@ public class Game implements KeyListener {
         makeCard3(charPool.get(2));
     }
 
-    public static void main(String[] args) {
-        Game game = new Game();
-        game.startup();
-        game.getCards();
-    }
     public void makeCard1(Card a){
         a.setMove1("Razor Leaf",60, 0,"Grass",0);
         a.setMove2("Giga Drain",40, 20, "Grass",0);
@@ -86,7 +81,7 @@ public class Game implements KeyListener {
         switch(e.getKeyCode())
         {
             case KeyEvent.VK_1:
-                if (screen.getState1().equals("battle")){
+                if (screen.getState1().equals("Battle")){
                     boss1CurCard.setHealth(screen.getCurCard().doMove1(boss1CurCard.getType()));
                     if (!checkDeckState(boss1)){
                         screen.setState("Win");
@@ -122,7 +117,7 @@ public class Game implements KeyListener {
                 break;
 
             case KeyEvent.VK_2:
-                if (screen.getState1().equals("battle")){
+                if (screen.getState1().equals("Battle")){
                     boss1CurCard.setHealth(screen.getCurCard().doMove2(boss1CurCard.getType()));
                     if (!checkDeckState(boss1)){
                         screen.setState("Win");
@@ -156,8 +151,20 @@ public class Game implements KeyListener {
 
             case KeyEvent.VK_SPACE:
                 if (screen.getState1().equals("Intro")){
-                    screen.setState("battle");
+                    getCards();
+                }
+                else if (screen.getState1().equals("Drawed")){
+                    screen.setState("Battle");
                     battle();
+                    screen.repaint();
+
+                }
+                break;
+
+            case KeyEvent.VK_D:
+                if (screen.getState1().equals("Draw")){
+                    screen.setState("Drawed");
+                    screen.repaint();
                 }
                 break;
 
@@ -187,9 +194,8 @@ public class Game implements KeyListener {
         charPool.remove(selector);
         selector = (int)(Math.random()*2);
         player.addToDeck(charPool.get(selector));
-
-
-
+        screen.setState("Draw");
+        screen.repaint();
     }
 
     public boolean checkDeckState(Player toCheck){
@@ -205,14 +211,23 @@ public class Game implements KeyListener {
         return boss1CurCard;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
     public void battle(){
         screen.setCurCard(player.getDeck().get(currentCard));
-        screen.repaint();
+        screen.setState("Battle");
 //        Card opCard = boss1.getDeck().get(0);
 //        opCard.draw(screen.getGraphics(),300,100);
         //prompt user for a move
 
 
+    }
+
+    public static void main(String[] args) {
+        Game game = new Game();
+        game.startup();
     }
 
 

@@ -39,13 +39,27 @@ public class Screen extends JFrame{
         g.setColor(Color.white);
         g.fillRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
         g.setColor(Color.black);
-        if (state.equals("Intro")){
+        if (state.equals("Draw")){
+            g.setFont(new Font("Default", Font.PLAIN,70));
+            g.drawString("Press D to draw your deck",300,200);
+        }
+        else if (state.equals("Drawed")){
+            g.setFont(new Font("Default", Font.PLAIN,70));
+            g.drawString("You got",600,300);
+            for (int i = 0; i <  + a.getPlayer().getDeck().size(); i++){
+                g.drawString( a.getPlayer().getDeck().get(i).getName(),200 + i*500, 400);
+                a.getPlayer().getDeck().get(i).draw(g,100 + 500*i,500);
+            }
+            g.setFont(new Font("Default", Font.PLAIN,40));
+            g.drawString("Press Space to Continue", 800, 200);
+        }
+        else if (state.equals("Intro")){
             g.setFont(new Font("Default",Font.PLAIN,20));
             g.drawString("Welcome to the world of Animon", 500, 500);
             g.drawString("Draw your partners and prepare for battle",500,600);
             g.drawString("Press Space to Continue", 800, 800);
         }
-        else if(state.equals("battle")){
+        else if(state.equals("Battle")){
             curCard.draw(g,200,450);
             g.setFont(new Font("Default",Font.PLAIN,50));
             g.drawString("1. " + curCard.getMove1N(),100,100);
