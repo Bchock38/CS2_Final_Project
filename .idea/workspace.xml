@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee387de0-9408-443c-b7f4-080c188b41d6" name="Changes" comment="Draft 3 Intro Done Battle Done. Add draw screen">
+    <list default="true" id="ee387de0-9408-443c-b7f4-080c188b41d6" name="Changes" comment="Draft 4 Final Project V1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Screen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714584906095</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Draft 4 Final Project V1">
+      <option name="closed" value="true" />
+      <created>1714713555425</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714713555425</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -137,7 +144,8 @@
     <MESSAGE value="Draft 1" />
     <MESSAGE value="Draft 2" />
     <MESSAGE value="Draft 3 Intro Done Battle Done. Add draw screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Draft 3 Intro Done Battle Done. Add draw screen" />
+    <MESSAGE value="Draft 4 Final Project V1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Draft 4 Final Project V1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -156,21 +164,6 @@
           <url>file://$PROJECT_DIR$/src/Card.java</url>
           <line>113</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>152</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>155</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>163</line>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
