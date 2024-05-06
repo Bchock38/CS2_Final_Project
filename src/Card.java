@@ -129,6 +129,9 @@ public class Card {
         else if (move1T.equals("Grass") && oponentType.equals("Water")){
             return move1D*2;
         }
+        else if (move1T.equals("Grass") && oponentType.equals("WATERGRASS")){
+            return (int) (move1D/2);
+        }
         else {
             return move1D;
         }
@@ -162,6 +165,9 @@ public class Card {
         }
         else if (move2T.equals("Grass") && oponentType.equals("Water")){
             return move2D*2;
+        }
+        else if (move2T.equals("Grass") && oponentType.equals("WATERGRASS")){
+            return (int) (move2D/2);
         }
         else {
             return move2D;

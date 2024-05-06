@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee387de0-9408-443c-b7f4-080c188b41d6" name="Changes" comment="Draft 4 Final Project V1">
+    <list default="true" id="ee387de0-9408-443c-b7f4-080c188b41d6" name="Changes" comment="Draft 5 Final Project V1">
+      <change afterPath="$PROJECT_DIR$/Resources/熊猫.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/花.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714713555425</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Draft 5 Final Project V1">
+      <option name="closed" value="true" />
+      <created>1714793774012</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714793774012</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -145,19 +157,20 @@
     <MESSAGE value="Draft 2" />
     <MESSAGE value="Draft 3 Intro Done Battle Done. Add draw screen" />
     <MESSAGE value="Draft 4 Final Project V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Draft 4 Final Project V1" />
+    <MESSAGE value="Draft 5 Final Project V1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Draft 5 Final Project V1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Card.java</url>
-          <line>166</line>
+          <line>172</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Card.java</url>
-          <line>132</line>
+          <line>135</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

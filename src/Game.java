@@ -29,8 +29,8 @@ public class Game implements KeyListener {
         Image image1 = new ImageIcon("Resources/_草.png").getImage();
         Image image2 = new ImageIcon("Resources/水.png").getImage();
         Image image3 = new ImageIcon("Resources/火.png").getImage();
-        Image image4;
-        Image image5;
+        Image image4 = new ImageIcon("Resources/熊猫.png").getImage();
+        Image image5 = new ImageIcon("Resources/花.png").getImage();
         Image image6;
         Image image7;
         Image image8;
@@ -40,9 +40,8 @@ public class Game implements KeyListener {
         charPool.add(new Card("草",100,1,"", screen, image1));
         charPool.add(new Card("水",150,2,"", screen, image2));
         charPool.add(new Card("火",125,3,"", screen, image3));
-//        charPool.add(new Card("3",100,3,"", screen,image3));
-//        charPool.add(new Card("4",100,4,"", screen,image4));
-//        charPool.add(new Card("5",100,5,"", screen,image5));
+        charPool.add(new Card("熊喵",250,4,"", screen,image4));
+        charPool.add(new Card("花",80,5,"", screen,image5));
 //        charPool.add(new Card("6",100,6,"", screen,image6));
 //        charPool.add(new Card("7",100,7,"", screen,image7));
 //        charPool.add(new Card("8",100,8,"", screen,image8));
@@ -52,6 +51,8 @@ public class Game implements KeyListener {
         makeCard1(charPool.get(0));
         makeCard2(charPool.get(1));
         makeCard3(charPool.get(2));
+        makeCard4(charPool.get(3));
+        makeCard5(charPool.get(4));
     }
 
     public void makeCard1(Card a){
@@ -70,6 +71,18 @@ public class Game implements KeyListener {
         a.setMove1("Flamethrower",70, 0,"Fire",0);
         a.setMove2("Nova Punch",50,0 ,"Normal",0);
         a.setType("Fire");
+    }
+
+    public void makeCard4(Card a){
+        a.setMove1("Body Slam",40, 0,"Normal",0);
+        a.setMove2("Recover",10,50 ,"Normal",0);
+        a.setType("Normal");
+    }
+
+    public void makeCard5(Card a){
+        a.setMove1("Hydro Pump",75, 0,"Water",0);
+        a.setMove2("Solar Beam",90,0 ,"Grass",0);
+        a.setType("WATERGRASS");
     }
 
     public void keyTyped(KeyEvent e) {
@@ -198,17 +211,22 @@ public class Game implements KeyListener {
     public void startup(){
         boss1.addToDeck(new Card (charPool.get(0)));
         boss1.addToDeck(new Card (charPool.get(2)));
+        boss1.addToDeck(new Card (charPool.get(3)));
         boss1CurCard = boss1.getDeck().get(0);
         makeCard1(boss1CurCard);
         makeCard3(boss1.getDeck().get(1));
+        makeCard4(boss1.getDeck().get(2));
         screen.setState("Intro");
     }
 
     public void getCards(){
-        int selector = (int)(Math.random()*3);
+        int selector = (int)(Math.random()*5);
         player.addToDeck(charPool.get(selector));
         charPool.remove(selector);
-        selector = (int)(Math.random()*2);
+        selector = (int)(Math.random()*4);
+        player.addToDeck(charPool.get(selector));
+        charPool.remove(selector);
+        selector = (int)(Math.random()*3);
         player.addToDeck(charPool.get(selector));
         screen.setState("Draw");
         screen.repaint();
