@@ -5,11 +5,21 @@ public class Player {
     private String name;
     private ArrayList<Card> deck;
 
+    private int cardsLeft;
+
     public Player(String name){
         this.name = name;
         deck = new ArrayList<Card>();
+        cardsLeft = 3;
     }
 
+    public void setCardsLeft(int cardsLeft) {
+        this.cardsLeft = cardsLeft;
+    }
+
+    public int getCardsLeft(){
+        return cardsLeft;
+    }
 
     public ArrayList<Card> getDeck() {
         return deck;

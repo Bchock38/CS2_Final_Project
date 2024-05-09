@@ -110,6 +110,7 @@ public class Game implements KeyListener {
                     }
                     else if (!boss1CurCard.getLivingStatus()){
                         boss1CurCard = boss1.getDeck().get(++boss1CurCardNum);
+                        boss1.setCardsLeft(boss1.getCardsLeft()-1);
                     }
                     screen.repaint();
                     if (randBossMover() == 1){
@@ -130,6 +131,7 @@ public class Game implements KeyListener {
                     }
                     else if (!boss1CurCard.getLivingStatus()){
                         boss1CurCard = boss1.getDeck().get(++boss1CurCardNum);
+                        boss1.setCardsLeft(boss1.getCardsLeft()-1);
                     }
                     screen.repaint();
                 }
@@ -150,6 +152,7 @@ public class Game implements KeyListener {
                     }
                     else if (!boss1CurCard.getLivingStatus()){
                         boss1CurCard = boss1.getDeck().get(++boss1CurCardNum);
+                        boss1.setCardsLeft(boss1.getCardsLeft()-1);
                     }
                     screen.repaint();
                     if (randBossMover() == 1){
@@ -170,6 +173,7 @@ public class Game implements KeyListener {
                     }
                     else if (!boss1CurCard.getLivingStatus()){
                         boss1CurCard = boss1.getDeck().get(++boss1CurCardNum);
+                        boss1.setCardsLeft(boss1.getCardsLeft()-1);
                     }
                     screen.repaint();
 
@@ -209,13 +213,60 @@ public class Game implements KeyListener {
     }
 
     public void startup(){
-        boss1.addToDeck(new Card (charPool.get(0)));
-        boss1.addToDeck(new Card (charPool.get(2)));
-        boss1.addToDeck(new Card (charPool.get(3)));
+        int selector = (int)(Math.random()*5);
+        boss1.addToDeck(new Card (charPool.get(selector)));
         boss1CurCard = boss1.getDeck().get(0);
-        makeCard1(boss1CurCard);
-        makeCard3(boss1.getDeck().get(1));
-        makeCard4(boss1.getDeck().get(2));
+        if (selector == 0){
+            makeCard1(boss1CurCard);
+        }
+        else if (selector == 1){
+            makeCard2(boss1CurCard);
+        }
+        else if (selector == 2){
+            makeCard3(boss1CurCard);
+        }
+        else if (selector == 3){
+            makeCard4(boss1CurCard);
+        }
+        else {
+            makeCard5(boss1CurCard);
+        }
+        selector = (int)(Math.random()*5);
+        boss1.addToDeck(new Card (charPool.get(selector)));
+        if (selector == 0){
+            makeCard1(boss1.getDeck().get(1));
+        }
+        else if (selector == 1){
+            makeCard2(boss1.getDeck().get(1));
+        }
+        else if (selector == 2){
+            makeCard3(boss1.getDeck().get(1));
+        }
+        else if (selector == 3){
+            makeCard4(boss1.getDeck().get(1));
+        }
+        else {
+            makeCard5(boss1.getDeck().get(1));
+        }
+        selector = (int)(Math.random()*5);
+        boss1.addToDeck(new Card (charPool.get(selector)));
+        if (selector == 0){
+            makeCard1(boss1.getDeck().get(2));
+        }
+        else if (selector == 1){
+            makeCard2(boss1.getDeck().get(2));
+        }
+        else if (selector == 2){
+            makeCard3(boss1.getDeck().get(2));
+        }
+        else if (selector == 3){
+            makeCard4(boss1.getDeck().get(2));
+        }
+        else {
+            makeCard5(boss1.getDeck().get(2));
+        }
+
+//
         screen.setState("Intro");
     }
 
@@ -249,12 +300,13 @@ public class Game implements KeyListener {
         return player;
     }
 
+    public Player getBoss1(){
+        return boss1;
+    }
+
     public void battle(){
         screen.setCurCard(player.getDeck().get(currentCard));
         screen.setState("Battle");
-//        Card opCard = boss1.getDeck().get(0);
-//        opCard.draw(screen.getGraphics(),300,100);
-        //prompt user for a move
 
 
     }

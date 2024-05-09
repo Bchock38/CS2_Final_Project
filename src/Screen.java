@@ -69,6 +69,7 @@ public class Screen extends JFrame{
             a.getBoss1CurCard().draw(g,1000,100);
             g.drawString("Boss 1: ", 1000,600);
             g.drawString( "Boss1 Card Health: " + Integer.toString(a.getBoss1CurCard().getHealth()),700,700);
+            g.drawString("Boss 1 has " + Integer.toString(a.getBoss1().getCardsLeft()) + " Cards Left",700,800);
         }
         if(state.equals("Win")){
             g.setFont(new Font("Default",Font.PLAIN,100));

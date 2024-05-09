@@ -110,7 +110,6 @@ public class Card {
                 move1D *=2 ;
             }
         }
-
         if (move1T.equals("Fire") && oponentType.equals("Water")){
             return move1D/2;
         }
@@ -142,9 +141,9 @@ public class Card {
     public int doMove2(String oponentType){
         health += move2H;
         if (move2Crit != 0){
-            int probability = (int)(Math.random()*10)+1;
+            int probability = (int)(Math.random()*100)+1;
             if (probability <= move2Crit){
-                move2D *=2 ;
+                move2D *=2;
             }
         }
 
