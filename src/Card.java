@@ -152,7 +152,6 @@ public class Card {
                 move2D *=2;
             }
         }
-
         if (move2T.equals("Fire") && oponentType.equals("Water")){
             return move2D/2;
         }
