@@ -32,9 +32,12 @@ public class Card {
 
     private int move2Crit;
 
+    private int orgH;
+
     public Card(String name, int health, int indexNum, String owner, Screen screen, Image image){
         this.name = name;
         this.health = health;
+        orgH = health;
         this.indexNum = indexNum;
         this.owner = owner;
         this.screen = screen;
@@ -95,6 +98,9 @@ public class Card {
         move2Crit = crit;
     }
 
+    public void reset(){
+        health = orgH;
+    }
     public void setHealth(int damage){
         health -=damage;
     }

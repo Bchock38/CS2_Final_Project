@@ -68,8 +68,26 @@ public class Screen extends JFrame{
             g.drawString( "Current Card Health: " + Integer.toString(curCard.getHealth()),100,300);
             a.getBoss1CurCard().draw(g,1000,100);
             g.drawString("Boss 1: ", 1000,600);
-            g.drawString( "Boss1 Card Health: " + Integer.toString(a.getBoss1CurCard().getHealth()),700,700);
+            g.drawString( "Boss 1 Card Health: " + Integer.toString(a.getBoss1CurCard().getHealth()),700,700);
             g.drawString("Boss 1 has " + Integer.toString(a.getBoss1().getCardsLeft()) + " Cards Left",700,800);
+        }
+        else if (state.equals("FinalBoss")){
+            g.setFont(new Font("Default",Font.PLAIN,20));
+            g.drawString("Congrats on beating the fist boss",500,500);
+            g.drawString("Now prepare your charcters for the next one",500,700);
+            g.drawString("Press Space to Continue", 800, 800);
+        }
+        else if (state.equals("FinalBossBattle")){
+            curCard.draw(g,200,450);
+            g.setFont(new Font("Default",Font.PLAIN,50));
+            g.drawString("1. " + curCard.getMove1N(),100,100);
+            g.drawString("2. " + curCard.getMove2N(),500,100);
+            g.drawString("Player 1: ", 200,400);
+            g.drawString( "Current Card Health: " + Integer.toString(curCard.getHealth()),100,300);
+            a.getBoss2CurCard().draw(g,1000,100);
+            g.drawString("Boss 2: ", 1000,600);
+            g.drawString( "Boss 2 Card Health: " + Integer.toString(a.getBoss2CurCard().getHealth()),700,700);
+            g.drawString("Boss 2 has " + Integer.toString(a.getBoss2().getCardsLeft()) + " Cards Left",700,800);
         }
         if(state.equals("Win")){
             g.setFont(new Font("Default",Font.PLAIN,100));

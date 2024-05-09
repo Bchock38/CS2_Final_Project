@@ -13,6 +13,11 @@ public class Player {
         cardsLeft = 3;
     }
 
+    public void deckReset(){
+        for (int i = 0; i < deck.size(); i++){
+            deck.get(i).reset();
+        }
+    }
     public void setCardsLeft(int cardsLeft) {
         this.cardsLeft = cardsLeft;
     }
