@@ -55,6 +55,7 @@ public class Card {
     public Card(Card card) {
         this.name = card.getName();
         this.health = card.getHealth();
+        orgH = card.getHealth();
         move1D = 0;
         move1N = "";
         move2D = 0;
@@ -100,6 +101,7 @@ public class Card {
 
     public void reset(){
         health = orgH;
+        isAlive = true;
     }
     public void setHealth(int damage){
         health -=damage;

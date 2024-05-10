@@ -73,7 +73,7 @@ public class Screen extends JFrame{
         }
         else if (state.equals("FinalBoss")){
             g.setFont(new Font("Default",Font.PLAIN,20));
-            g.drawString("Congrats on beating the fist boss",500,500);
+            g.drawString("Congrats on beating the first boss",500,500);
             g.drawString("Now prepare your charcters for the next one",500,700);
             g.drawString("Press Space to Continue", 800, 800);
         }
