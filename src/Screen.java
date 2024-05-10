@@ -10,8 +10,6 @@ public class Screen extends JFrame{
 
     private String state;
 
-    private Card curCard;
-
     public Screen(Game a, String State){
         this.a = a;
         this.state = State;
@@ -19,19 +17,13 @@ public class Screen extends JFrame{
         this.setTitle("Screen");
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setVisible(true);
+
     }
 
     public String getState1(){
         return state;
     }
 
-    public void setCurCard(Card newCurCard){
-        curCard = newCurCard;
-    }
-
-    public Card getCurCard(){
-        return curCard;
-    }
     public void setState (String newState){
         state = newState;
     }
@@ -60,12 +52,12 @@ public class Screen extends JFrame{
             g.drawString("Press Space to Continue", 800, 800);
         }
         else if(state.equals("Battle")){
-            curCard.draw(g,200,450);
+            a.getCurCard().draw(g,200,450);
             g.setFont(new Font("Default",Font.PLAIN,50));
-            g.drawString("1. " + curCard.getMove1N(),100,100);
-            g.drawString("2. " + curCard.getMove2N(),500,100);
+            g.drawString("1. " + a.getCurCard().getMove1N(),100,100);
+            g.drawString("2. " + a.getCurCard().getMove2N(),500,100);
             g.drawString("Player 1: ", 200,400);
-            g.drawString( "Current Card Health: " + Integer.toString(curCard.getHealth()),100,300);
+            g.drawString( "Current Card Health: " + Integer.toString(a.getCurCard().getHealth()),100,300);
             a.getBoss1CurCard().draw(g,1000,100);
             g.drawString("Boss 1: ", 1000,600);
             g.drawString( "Boss 1 Card Health: " + Integer.toString(a.getBoss1CurCard().getHealth()),700,700);
@@ -78,12 +70,12 @@ public class Screen extends JFrame{
             g.drawString("Press Space to Continue", 800, 800);
         }
         else if (state.equals("FinalBossBattle")){
-            curCard.draw(g,200,450);
+            a.getCurCard().draw(g,200,450);
             g.setFont(new Font("Default",Font.PLAIN,50));
-            g.drawString("1. " + curCard.getMove1N(),100,100);
-            g.drawString("2. " + curCard.getMove2N(),500,100);
+            g.drawString("1. " + a.getCurCard().getMove1N(),100,100);
+            g.drawString("2. " + a.getCurCard().getMove2N(),500,100);
             g.drawString("Player 1: ", 200,400);
-            g.drawString( "Current Card Health: " + Integer.toString(curCard.getHealth()),100,300);
+            g.drawString( "Current Card Health: " + Integer.toString(a.getCurCard().getHealth()),100,300);
             a.getBoss2CurCard().draw(g,1000,100);
             g.drawString("Boss 2: ", 1000,600);
             g.drawString( "Boss 2 Card Health: " + Integer.toString(a.getBoss2CurCard().getHealth()),700,700);

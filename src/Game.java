@@ -18,6 +18,8 @@ public class Game implements KeyListener {
 
     private int currentCard;
 
+    private Card curCard;
+
     private Card boss1CurCard;
 
     private Card boss2CurCard;
@@ -140,7 +142,6 @@ public class Game implements KeyListener {
                     }
                     screen.repaint();
                 }
-
                 break;
 
             case KeyEvent.VK_2:
@@ -222,20 +223,20 @@ public class Game implements KeyListener {
             screen.setState("Lost");
             return false;
         }
-        else if (!screen.getCurCard().getLivingStatus()){
-            screen.setCurCard(player.getDeck().get(++currentCard));
+        else if (!curCard.getLivingStatus()){
+            curCard = (player.getDeck().get(++currentCard));
             return false;
         }
         return true;
     }
     public void attackPlayer(Card bossCurCard){
         if (randBossMover() == 1){
-            int d = bossCurCard.doMove1(screen.getCurCard().getType());
-            screen.getCurCard().setHealth(d);
+            int d = bossCurCard.doMove1(curCard.getType());
+            curCard.setHealth(d);
         }
         else{
-            int d = bossCurCard.doMove2(screen.getCurCard().getType());
-            screen.getCurCard().setHealth(d);
+            int d = bossCurCard.doMove2(curCard.getType());
+            curCard.setHealth(d);
         }
     }
     public boolean checkBoss1State(Player boss){
@@ -255,10 +256,10 @@ public class Game implements KeyListener {
 
     public void attackBoss(Card bossCurCard, int move){
         if (move == 1){
-            bossCurCard.setHealth(screen.getCurCard().doMove1(bossCurCard.getType()));
+            bossCurCard.setHealth(curCard.doMove1(bossCurCard.getType()));
         }
         else{
-            bossCurCard.setHealth(screen.getCurCard().doMove2(bossCurCard.getType()));
+            bossCurCard.setHealth(curCard.doMove2(bossCurCard.getType()));
         }
 
     }
@@ -368,12 +369,16 @@ public class Game implements KeyListener {
     }
 
     public void battle(){
-        screen.setCurCard(player.getDeck().get(currentCard));
+        curCard = (player.getDeck().get(currentCard));
         screen.setState("Battle");
     }
 
+    public Card getCurCard(){
+        return curCard;
+    }
+
     public void finalbattle(){
-        screen.setCurCard(player.getDeck().get(0));
+        curCard = (player.getDeck().get(0));
         screen.setState("FinalBossBattle");
     }
 
