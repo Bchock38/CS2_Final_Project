@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee387de0-9408-443c-b7f4-080c188b41d6" name="Changes" comment="Draft 10 Final Project V1">
+    <list default="true" id="ee387de0-9408-443c-b7f4-080c188b41d6" name="Changes" comment="Draft 11 Final Project V1">
+      <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Screen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715359751817</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Draft 11 Final Project V1">
+      <option name="closed" value="true" />
+      <created>1715360242631</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715360242631</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -199,34 +209,35 @@
     <MESSAGE value="Draft 8 Final Project V1" />
     <MESSAGE value="Draft 9 Final Project V1" />
     <MESSAGE value="Draft 10 Final Project V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Draft 10 Final Project V1" />
+    <MESSAGE value="Draft 11 Final Project V1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Draft 11 Final Project V1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>167</line>
+          <line>196</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>137</line>
+          <line>156</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Player.java</url>
-          <line>17</line>
+          <line>18</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>234</line>
+          <line>275</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>238</line>
+          <line>281</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>

@@ -1,3 +1,4 @@
+//Benjamin Chock
 import java.awt.*;
 
 public class Card {
@@ -77,6 +78,7 @@ public class Card {
         this.type = type;
     }
 
+    //set up move 1
     public void setMove1(String name, int damage, int heal, String moveType, int crit){
         move1D = damage;
         move1N = name;
@@ -85,12 +87,14 @@ public class Card {
         move1Crit = crit;
     }
 
+    //check if card is alive
     public boolean getLivingStatus(){
         if (health <= 0){
             isAlive = false;
         }
         return isAlive;
     }
+    //set up move 2
     public void setMove2(String name, int damage, int heal, String moveType, int crit){
         move2D = damage;
         move2N = name;
@@ -99,10 +103,12 @@ public class Card {
         move2Crit = crit;
     }
 
+    //reset card/set to alive reset health
     public void reset(){
         health = orgH;
         isAlive = true;
     }
+    //deal damage to health equal to damage passes in
     public void setHealth(int damage){
         health -=damage;
     }
@@ -110,14 +116,17 @@ public class Card {
     public String getType(){
         return type;
     }
+    //return damage that move 1 should do
     public int doMove1(String oponentType){
         health += move1H;
+        //check for crit
         if (move1Crit != 0){
             int probability = (int)(Math.random()*100)+1;
             if (probability <= move1Crit){
                 move1D *=2 ;
             }
         }
+        //check for supereffective or less effective move
         if (move1T.equals("Fire") && oponentType.equals("Water")){
             return move1D/2;
         }
@@ -146,14 +155,17 @@ public class Card {
 
     }
 
+    //return damage that move2 should do
     public int doMove2(String oponentType){
         health += move2H;
+        //check for crit chance
         if (move2Crit != 0){
             int probability = (int)(Math.random()*100)+1;
             if (probability <= move2Crit){
                 move2D *=2;
             }
         }
+        //check for supereffective or less effective move
         if (move2T.equals("Fire") && oponentType.equals("Water")){
             return move2D/2;
         }
@@ -190,6 +202,7 @@ public class Card {
     public int getHealth(){
         return health;
     }
+    //have card draw itself
     public void draw(Graphics g, int x, int y){
         g.setFont(new Font("Default",Font.PLAIN,50));
         g.drawImage(card,x,y,260,400,screen);
